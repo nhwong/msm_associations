@@ -21,14 +21,15 @@
       <dd><img src="<%= @movie.image_url %>" width=160></dd>
 
       <dt>Director</dt>
-      <dd><%= Director.find_by(:id => @movie.director_id).name %></dd>
+      <dd><%= @movie.director.name %></dd>
 
       <dt>Number of Characters</dt>
-      <dd><%= Character.where(:movie_id => @movie.id).count %></dd>
+      <dd><%= @movie.characters.count%></dd>
 
       <dt>Cast</dt>
-      <% Character.where(:movie_id => @movie.id).each do |character| %>
-      <dd> <%= Actor.find_by(:id => character.actor_id).name %> (<%= character.name %>) </dd>
+      <% @movie.characters.each do |character| %>
+      <!-- <dd> <%= Actor.find_by(:id => character.actor_id).name %> (<%= character.name %>) </dd> -->
+      <dd> <%= character.actor.name %> (<%= character.name %>) </dd>
       <% end %>
 
       <dt>Add a new character</dt>

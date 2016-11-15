@@ -18,10 +18,10 @@
       <dd><img src="<%= @director.image_url %>" width=160></dd>
 
       <dt>Number of Films</dt>
-      <dd><%= Movie.where(:director_id => @director.id).count %></dd>
+      <dd><%= @director.movies.count %></dd>
 
       <dt>Filmography</dt>
-      <% Movie.where(:director_id => @director.id).each do |movie| %>
+      <% @director.movies.each do |movie| %>
       <dd> <%= movie.title %> </dd>
       <% end %>
 
@@ -81,7 +81,7 @@
         <button class="btn btn-success">
           Create Movie
         </button>
-        
+
       </dd>
 
     </dl>
