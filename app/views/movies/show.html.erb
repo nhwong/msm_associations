@@ -28,7 +28,7 @@
 
       <dt>Cast</dt>
       <% Character.where(:movie_id => @movie.id).each do |character| %>
-      <dd> <%= character.name %> </dd>
+      <dd> <%= Actor.find_by(:id => character.actor_id).name %> (<%= character.name %>) </dd>
       <% end %>
 
       <dt>Add a new character</dt>
